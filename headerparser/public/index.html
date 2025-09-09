@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Microservicio Analizador de Encabezado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Request Header Parser Microservice</h1>
+  <p>El microservicio devuelve información sobre la IP, lenguaje y software.</p>
+
+  <button id="fetchBtn">Probar /api/whoami</button>
+
+  <pre id="result">{}</pre>
+
+  <footer>
+    <p>[base url]/api/whoami</a></p>
+  </footer>
+
+  <script>
+    document.getElementById('fetchBtn').addEventListener('click', async () => {
+      const res = await fetch('/api/whoami');
+      const data = await res.json();
+      document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>

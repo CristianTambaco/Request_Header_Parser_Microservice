@@ -5,6 +5,10 @@ const app = express();
 // CORS para hacer requests
 app.use(cors());
 
+// Servir archivos estáticos desde la carpeta "public"
+app.use(express.static('public'));
+
+
 // Ruta principal opcional
 app.get('/', (req, res) => {
   res.send('Microservicio de analizador de solicitud de encabezado');
